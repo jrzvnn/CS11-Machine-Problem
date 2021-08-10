@@ -1,3 +1,5 @@
+import numpy
+
 a = []
 b = []
 
@@ -38,33 +40,24 @@ def scalar_multiply():
 
 
 def multiply():
-    print("under maintance!")
+    r1, c1 = map(int, input().split())
+    matrix_a(r1, c1)
+    r2, c2 = map(int, input().split())
+    matrix_b(r2, c2)
+
+    print(numpy.dot(a, b))
 
 
 def transpose():
     r, c = map(int, input().split())
     matrix_a(r, c)
-    n = len(a)
-    temp = 0
 
-    for i in range(0, n):
-        for j in range(i + 1, n):
-            temp = a[i][j]
-            a[i][j] = a[j][i]
-            a[j][i] = temp
+    x = [[0 for x in range(r)] for y in range(c)]
+    for i in range(c):
+        for j in range(r):
+            x[i][j] = a[j][i]
 
     for i in range(c):
         for j in range(r):
-            print(a[i][j], end=" ")
+            print(x[i][j], end=" ")
         print()
-
-
-
-    
-    
-
-
-
-
-
-
