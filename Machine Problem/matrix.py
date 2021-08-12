@@ -20,6 +20,11 @@ def add():
     r2, c2 = map(int, input().split())
     matrix_b(r2, c2)
 
+    if r1 != r2 and c1 != c2:
+        print("""Invalid input. Addition of matrices follows conformability; 
+                matrices should be of the same dimensions.""")
+        quit()
+
     for i in range(r1):
         for j in range(c1):
             print(a[i][j] + b[i][j], end=" ")
@@ -43,6 +48,11 @@ def multiply():
     r2, c2 = map(int, input().split())
     matrix_b(r2, c2)
 
+    if r2 != c1:
+        print( """Invalid input. Multiplication of matrices follows conformability.
+                Matrices, say A and B, should have same column and row, respectively.""")
+        quit()
+    
     for i in range(r1):                    
         for j in range(c2):
             p = 0
