@@ -1,5 +1,3 @@
-import numpy
-
 a = []
 b = []
 
@@ -17,13 +15,13 @@ def matrix_b(r, c):
 
 
 def add():
-    r, c = map(int, input().split())
-    matrix_a(r, c)
-    r, c = map(int, input().split())
-    matrix_b(r, c)
+    r1, c1 = map(int, input().split())
+    matrix_a(r1, c1)
+    r2, c2 = map(int, input().split())
+    matrix_b(r2, c2)
 
-    for i in range(r):
-        for j in range(c):
+    for i in range(r1):
+        for j in range(c1):
             print(a[i][j] + b[i][j], end=" ")
         print()
 
@@ -45,19 +43,22 @@ def multiply():
     r2, c2 = map(int, input().split())
     matrix_b(r2, c2)
 
-    print(numpy.dot(a, b))
+    for i in range(r1):                    
+        for j in range(c2):
+            p = 0
+            for k in range(r2):
+                p += a[i][k] * b[k][j]
+            print(p, end=(" "))
+        print()
 
 
 def transpose():
     r, c = map(int, input().split())
-    matrix_a(r, c)
-
-    x = [[0 for x in range(r)] for y in range(c)]
-    for i in range(c):
-        for j in range(r):
-            x[i][j] = a[j][i]
+    matrix_a(r, c) 
 
     for i in range(c):
         for j in range(r):
-            print(x[i][j], end=" ")
+            print(a[j][i], end=" ")
         print()
+
+
